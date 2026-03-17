@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
-import { SearchPage } from '../../framework/pages/SearchPage';
-import { LoginPage } from '../../framework/pages/LoginPage';
-import { TEST_DATA } from '../../framework/constants/TestData';
+import { SearchPage } from '../../../framework/pages/SearchPage';
+import { LoginPage } from '../../../framework/pages/LoginPage';
+import { TEST_DATA } from '../../../framework/constants/TestData';
 
 test.describe('Search functionality on OrangeHRM Dashboard', () => {
     let searchPage: SearchPage;
@@ -25,6 +25,7 @@ test.describe('Search functionality on OrangeHRM Dashboard', () => {
         await resultElement.first().waitFor({ state: 'visible', timeout: 15000 });
 
         const content = await resultElement.first().textContent();
+        expect(content).not.toBeNull();
         expect(content?.toLowerCase()).toContain(query.toLowerCase());
     });
 });

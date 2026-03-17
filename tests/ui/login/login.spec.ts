@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
-import { LoginPage } from '../../framework/pages/LoginPage';
-import { TEST_DATA } from '../../framework/constants/TestData';
+import { LoginPage } from '../../../framework/pages/LoginPage';
+import { TEST_DATA } from '../../../framework/constants/TestData';
 
 test.describe('Login functionality on OrangeHRM', () => {
     let loginPage: LoginPage;
@@ -11,7 +11,7 @@ test.describe('Login functionality on OrangeHRM', () => {
     });
 
     test('should login with valid credentials and verify dashboard', async () => {
-        //valid credentials
+
         await loginPage.login(TEST_DATA.login.validUser, TEST_DATA.login.validPassword);
 
         const secureHeader = await loginPage.getSecureAreaHeader();

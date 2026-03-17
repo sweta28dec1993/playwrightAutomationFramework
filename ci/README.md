@@ -1,4 +1,4 @@
-# CI/CD Integration
+<!-- # CI/CD Integration
 
 This framework uses GitHub Actions for Continuous Integration.
 
@@ -18,4 +18,4 @@ The workflow automatically triggers on:
 
 ## Local equivalent
 To run the exact command the CI server runs, execute `npx playwright test` locally.
-6. **Report Publishing**: Uploads the HTML report (`playwright-report/`) to the GitHub workflow artifacts for review upon success or failure.
+6. **Report Publishing**: Uploads the HTML report (`playwright-report/`) to the GitHub workflow artifacts for review upon success or failure. -->

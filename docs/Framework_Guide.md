@@ -36,4 +36,5 @@ export class MyCustomPage extends BasePage {
 ```
 
 ## Creating New Tests
-Test execution is managed via Playwright's test runner which already injects the browser Page context automatically. Instantiate your custom Page Objects within tests blocks (or hooks like `beforeEach`). Maintain assertions inside the `test` specification blocks rather than inside POM classes when possible.
+Test execution is managed via Playwright's test runner which already injects the browser Page context automatically. 
+Instantiate your custom Page Objects within tests blocks (or hooks like `beforeEach`). Maintain assertions inside the `test` specification blocks rather than inside POM classes when possible.

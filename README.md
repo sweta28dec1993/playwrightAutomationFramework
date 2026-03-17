@@ -8,8 +8,9 @@ This framework includes sample end-to-end tests for `https://the-internet.heroku
 - **Search/Lookup Flow**: Simulated lookup query input and validation on the forgot password page.
 
 ## Project Structure
-- `tests/` - Feature grouped test spec files logic.
-- `framework/` - Abstracted UI interaction base pages (`BasePage`) and Page Object Models (`LoginPage`, `SearchPage`), along with helper utilities (`Constants.ts`, `Logger.ts`).
+- `tests/` - Feature grouped test spec files logic. Contains UI (`login/`, `search/`) and API tests (`api/`).
+- `framework/` - Contains UI Abstracted interaction base pages (`BasePage`) and Page Object Models (`LoginPage`, `SearchPage`), along with API helper utilities (`api/apiClient.ts`, `api/testRunner.ts`).
+- `tests/api/data/` - Contains the YAML test case configurations for data-driven API testing.
 - `.env` - Environment variable configuration (e.g., `BASE_URL`).
 - `ci/` - Automation setup explanations.
 - `docs/` - Deeper dive on framework architecture.
@@ -27,16 +28,23 @@ npm install
 npx playwright install --with-deps
 ```
 
-### Running Tests
+### Running UI Tests
 
-Run all tests in headline mode:
+Run all UI tests in headline mode:
 ```bash
-npx playwright test --headed
+npx playwright test tests/ui --headed
 ```
 
-Run tests specifically for Google Chrome only:
+Run UI tests specifically for Google Chrome only:
 ```bash
-npx playwright test --project=chromium
+npx playwright test tests/ui --project=chromium
+```
+
+### Running API Tests
+
+The API test framework relies on data-driven YAML definitions. You can execute them by running the API spec:
+```bash
+npx playwright test tests/api/api.spec.ts
 ```
 
 ## Reporting & Debugging
