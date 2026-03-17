@@ -1,6 +1,5 @@
 import { test, expect } from '@playwright/test';
 import * as fs from 'fs';
-import * as yaml from 'js-yaml';
 import { APIClient } from './apiClient';
 
 export interface ApiTestCase {
@@ -13,19 +12,19 @@ export interface ApiTestCase {
 }
 
 
-export function runApiTestsFromYaml(filePath: string) {
+export function runApiTestsFromJson(filePath: string) {
     let fileContents: string;
     let testCases: ApiTestCase[];
 
     try {
         fileContents = fs.readFileSync(filePath, 'utf8');
-        testCases = yaml.load(fileContents) as ApiTestCase[];
+        testCases = JSON.parse(fileContents) as ApiTestCase[];
     } catch (error) {
-        console.error(`Error reading or parsing YAML file ${filePath}:`, error);
+        console.error(`Error reading or parsing JSON file ${filePath}:`, error);
         return;
     }
 
-    const apiName = filePath.split(/[\\/]/).pop()?.replace('.yaml', '') || 'API';
+    const apiName = filePath.split(/[\\/]/).pop()?.replace('.json', '') || 'API';
 
     for (const testCase of testCases) {
         test(`[${apiName}] ${testCase.name}`, async ({ request }) => {

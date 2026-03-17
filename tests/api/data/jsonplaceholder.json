@@ -1,0 +1,48 @@
+[
+  {
+    "name": "Get Comments JSON",
+    "method": "GET",
+    "endpoint": "https://jsonplaceholder.typicode.com/posts/1/comments",
+    "expected_status": 200,
+    "assertions": [
+      "response[0].postId == 1"
+    ]
+  },
+  {
+    "name": "Create a New Post",
+    "method": "POST",
+    "endpoint": "https://jsonplaceholder.typicode.com/posts",
+    "payload": {
+      "title": "foo",
+      "body": "bar",
+      "userId": 1
+    },
+    "expected_status": 201,
+    "assertions": [
+      "response.title == 'foo'",
+      "response.body == 'bar'",
+      "response.userId == 1"
+    ]
+  },
+  {
+    "name": "Update User with PUT",
+    "method": "PUT",
+    "endpoint": "https://jsonplaceholder.typicode.com/posts/1",
+    "payload": {
+      "id": 1,
+      "title": "foo updated",
+      "body": "bar updated",
+      "userId": 1
+    },
+    "expected_status": 200,
+    "assertions": [
+      "response.title == 'foo updated'"
+    ]
+  },
+  {
+    "name": "Delete a Post",
+    "method": "DELETE",
+    "endpoint": "https://jsonplaceholder.typicode.com/posts/1",
+    "expected_status": 200
+  }
+]
