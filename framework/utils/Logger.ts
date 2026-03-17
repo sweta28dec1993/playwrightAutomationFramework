@@ -1,5 +1,5 @@
 /**
- * A simple logger utility to standardize logging output during test execution.
+ * A simple logger utility
  */
 export class Logger {
     static info(message: string): void {

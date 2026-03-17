@@ -3,7 +3,7 @@ import { BasePage } from './BasePage';
 import { PAGE_ROUTE } from '../constants/PageRoute';
 
 export class LoginPage extends BasePage {
-    // Locators
+
     private readonly usernameInput: Locator;
     private readonly passwordInput: Locator;
     private readonly loginButton: Locator;
@@ -15,13 +15,10 @@ export class LoginPage extends BasePage {
         this.usernameInput = page.locator('input[name="username"]');
         this.passwordInput = page.locator('input[name="password"]');
         this.loginButton = page.locator('button[type="submit"]');
-        this.flashMessage = page.locator('.oxd-alert-content-text'); // Invalid credentials alert
-        this.headerArea = page.locator('.oxd-topbar-header-breadcrumb h6'); // Dashboard header
+        this.flashMessage = page.locator('.oxd-alert-content-text');
+        this.headerArea = page.locator('.oxd-topbar-header-breadcrumb h6');
     }
 
-    /**
-     * Navigate to the login page.
-     */
     async navigateToLogin(): Promise<void> {
         await this.goto(PAGE_ROUTE.login);
     }

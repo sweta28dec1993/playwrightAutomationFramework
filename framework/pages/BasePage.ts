@@ -1,10 +1,6 @@
 import { Page, Locator } from '@playwright/test';
 import { Logger } from '../utils/Logger';
 
-/**
- * BasePage contains common Playwright actions to wrap Playwright methods
- * with added logging, waits, and error handling.
- */
 export class BasePage {
     protected page: Page;
 
@@ -12,9 +8,6 @@ export class BasePage {
         this.page = page;
     }
 
-    /**
-     * Navigate to a specified URL.
-     */
     async goto(url: string): Promise<void> {
         Logger.step(`Navigating to URL: ${url}`);
         try {
@@ -25,9 +18,6 @@ export class BasePage {
         }
     }
 
-    /**
-     * Wait for an element to be visible and click it.
-     */
     async clickElement(locator: Locator, description: string): Promise<void> {
         Logger.step(`Clicking on: ${description}`);
         try {
@@ -39,9 +29,6 @@ export class BasePage {
         }
     }
 
-    /**
-     * Wait for an input element to be visible and fill it with text.
-     */
     async fillInput(locator: Locator, text: string, description: string): Promise<void> {
         Logger.step(`Filling text into: ${description}`);
         try {
@@ -53,9 +40,6 @@ export class BasePage {
         }
     }
 
-    /**
-     * Get text content from an element.
-     */
     async getText(locator: Locator, description: string): Promise<string | null> {
         Logger.step(`Getting text from: ${description}`);
         try {
@@ -66,7 +50,7 @@ export class BasePage {
             throw error;
         }
     }
-    
+
     /**
      * Check if an element is visible.
      */
@@ -79,7 +63,7 @@ export class BasePage {
             return false;
         }
     }
-    
+
     /**
      * Get the HTML content of the page.
      */
